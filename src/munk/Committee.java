@@ -12,11 +12,20 @@ public class Committee {
 
     /** Motions introduced into the Committee. */
     private ArrayList<Motion> motions;
+    
+    /** Sessions of the Committee. */
+    private ArrayList<Session> sessions;
+    
+    /** The current Session of the Committee. */
+    private Session currentSession;
 
     public Committee() {
         delegates = new ArrayList<Delegate>();
         resolutions = new ArrayList<Resolution>(); //Duplicated code, might be fixable later.
         motions = new ArrayList<Motion>();
+        sessions = new ArrayList<Session>();
+        currentSession = new Session();
+        sessions.add(currentSession);
     }
 
     public Committee(ArrayList<Delegate> delegates) {
@@ -39,6 +48,7 @@ public class Committee {
         for (Delegate delegate : signatories) {
             delegate.addResolution(resolution);
         }
+        currentSession.addResolution(resolution);
     }
 
 }
