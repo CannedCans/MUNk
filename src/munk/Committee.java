@@ -7,25 +7,38 @@ public class Committee {
     /** Delegates in the Committee */
     private ArrayList<Delegate> delegates;
 
+    /** Resolutions introduced into the Committee. */
     private ArrayList<Resolution> resolutions;
 
+    /** Motions introduced into the Committee. */
     private ArrayList<Motion> motions;
 
     public Committee() {
-        if (delegates == null) {
-            delegates = new ArrayList<Delegate>();
-        }
-        resolutions = new ArrayList<Resolution>();
+        delegates = new ArrayList<Delegate>();
+        resolutions = new ArrayList<Resolution>(); //Duplicated code, might be fixable later.
         motions = new ArrayList<Motion>();
     }
 
     public Committee(ArrayList<Delegate> delegates) {
         this.delegates = delegates;
-        this();
+        resolutions = new ArrayList<Resolution>();
+        motions = new ArrayList<Motion>();
     }
 
     public void addDelegate(Delegate delegate) {
         this.delegates.add(delegate);
+    }
+
+    public void addResolution(ArrayList<Delegate> sponsors, ArrayList<Delegate> signatories, String content) {
+        Resolution resolution = new Resolution(sponsors, signatories, content);
+
+        for (Delegate delegate : sponsors) { //Also duplicated code, might be fixable
+            delegate.addResolution(resolution);
+        }
+
+        for (Delegate delegate : signatories) {
+            delegate.addResolution(resolution);
+        }
     }
 
 }
