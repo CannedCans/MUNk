@@ -50,5 +50,14 @@ public class Committee {
         }
         currentSession.addResolution(resolution);
     }
-
+    
+    public void newSession() {
+    	currentSession = new Session();
+    	sessions.add(currentSession);
+    }
+    
+    public void rollCall() {
+    	
+    }
+    
 }

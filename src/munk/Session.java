@@ -1,6 +1,7 @@
 package munk;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Session {
 
@@ -14,13 +15,20 @@ public class Session {
 	
 	private ArrayList<Motion> motions;
 	
+	private HashMap<Delegate, String> rollCallInfo;
+	
 	public Session() {
 		sessionNumber = sessionCount++;
 		resolutions = new ArrayList<Resolution>();
 		motions = new ArrayList<Motion>();
+		rollCallInfo = new HashMap<Delegate, String>();
 	}
 	
 	public void addResolution(Resolution resolution) {
 		resolutions.add(resolution);
+	}
+	
+	public void rollCall(Delegate delegate, String state) {
+		rollCallInfo.put(delegate, state);
 	}
 }
