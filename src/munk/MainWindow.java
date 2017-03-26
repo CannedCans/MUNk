@@ -19,6 +19,8 @@ public class MainWindow {
 
 	private JFrame frmMunk;
 	public final String munkVersion = "0.1";
+	
+	private static Committee committee;
 
 	/**
 	 * Launch the application.
@@ -30,6 +32,7 @@ public class MainWindow {
 					MainWindow window = new MainWindow();
 					window.frmMunk.setVisible(true);
 					window.frmMunk.setExtendedState(JFrame.MAXIMIZED_BOTH);
+					committee = new Committee();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

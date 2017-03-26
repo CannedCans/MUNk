@@ -18,10 +18,14 @@ public class Resolution {
 
 	/** Whether or not the Resolution passed. */
 	private boolean passed;
+	
+	/** The title of the Resolution. */
+	private String title;
 
-	public Resolution(ArrayList<Delegate> sponsors, ArrayList<Delegate> signatories, String content) {
+	public Resolution(ArrayList<Delegate> sponsors, ArrayList<Delegate> signatories, String title, String content) {
 		this.sponsors = sponsors;
 		this.signatories = signatories;
+		this.title = title;
 		this.content = content;
 	}
 

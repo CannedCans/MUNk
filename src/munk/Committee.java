@@ -29,8 +29,8 @@ public class Committee {
         this.delegates.add(delegate);
     }
 
-    public void addResolution(ArrayList<Delegate> sponsors, ArrayList<Delegate> signatories, String content) {
-        Resolution resolution = new Resolution(sponsors, signatories, content);
+    public void addResolution(ArrayList<Delegate> sponsors, ArrayList<Delegate> signatories, String title, String content) {
+        Resolution resolution = new Resolution(sponsors, signatories, title, content);
 
         for (Delegate delegate : sponsors) { //Also duplicated code, might be fixable
             delegate.addResolution(resolution);
