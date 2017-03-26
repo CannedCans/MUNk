@@ -34,8 +34,23 @@ public class Committee {
         motions = new ArrayList<Motion>();
     }
 
+    /**
+     * Add a Delegate, does not add to Roll Call information.
+     * 
+     * @param delegate Delegate to add
+     */
     public void addDelegate(Delegate delegate) {
         this.delegates.add(delegate);
+    }
+    
+    /**
+     * Updates a Delegate's roll call information.
+     * 
+     * @param delegate Delegate to update
+     * @param rollCallState Roll Call Information for the Delegate for the Session
+     */
+    public void updateRollCall(Delegate delegate, String rollCallState) {
+    	currentSession.rollCall(delegate, rollCallState);
     }
 
     public void addResolution(ArrayList<Delegate> sponsors, ArrayList<Delegate> signatories, String title, String content) {
