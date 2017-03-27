@@ -12,13 +12,19 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JSplitPane;
 import java.awt.Window.Type;
+import java.nio.file.Path;
+
 import javax.swing.JMenuBar;
 import javax.swing.JToolBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JSpinner;
 
 public class MainWindow {
 
 	private JFrame frmMunk;
 	public final String munkVersion = "0.1";
+	private Path savePath;
 	
 	private static Committee committee;
 
@@ -76,6 +82,39 @@ public class MainWindow {
 		
 		JMenuBar menuBar = new JMenuBar();
 		frmMunk.setJMenuBar(menuBar);
+		
+		JMenu fileMenu = new JMenu("File");
+		menuBar.add(fileMenu);
+		
+		JMenuItem openFileButton = new JMenuItem("Open file");
+		fileMenu.add(openFileButton);
+		
+		JMenuItem saveMenuButton = new JMenuItem("Save");
+		fileMenu.add(saveMenuButton);
+		
+		JMenuItem saveAsMenuButton = new JMenuItem("Save as...");
+		fileMenu.add(saveAsMenuButton);
+		
+		JMenuItem settingsMenuItem = new JMenuItem("Settings");
+		fileMenu.add(settingsMenuItem);
+		
+		JMenu windowsMenuItem = new JMenu("Windows");
+		menuBar.add(windowsMenuItem);
+		
+		JMenuItem delegatesMenuItem = new JMenuItem("Delegates");
+		windowsMenuItem.add(delegatesMenuItem);
+		
+		JMenuItem resolutionsMenuItem = new JMenuItem("Resolutions");
+		windowsMenuItem.add(resolutionsMenuItem);
+		
+		JMenuItem statisticsMenuItem = new JMenuItem("Statistics");
+		windowsMenuItem.add(statisticsMenuItem);
+		
+		JMenu helpMenu = new JMenu("Help");
+		menuBar.add(helpMenu);
+		
+		JMenuItem aboutMenuItem = new JMenuItem("About");
+		helpMenu.add(aboutMenuItem);
 	}
 	
 }
