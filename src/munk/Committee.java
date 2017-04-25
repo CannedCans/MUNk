@@ -72,7 +72,10 @@ public class Committee {
     }
     
     public void rollCall() {
-    	
+      for (Delegate delegate : delegates) {
+          String state = MainWindow.requestInfoPopup("Roll Call!", "Roll call info for: " + delegate.getShortRole());
+          updateRollCall(delegate, state));
+      }
     }
     
 }

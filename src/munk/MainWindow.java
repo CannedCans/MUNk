@@ -116,5 +116,8 @@ public class MainWindow {
 		JMenuItem aboutMenuItem = new JMenuItem("About");
 		helpMenu.add(aboutMenuItem);
 	}
-	
+
+  public String requestInfoPopup(String title, String infoRequested) {
+    return "FILLER TEXT";
+  }
 }
