@@ -1,8 +1,9 @@
 package munk;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Committee {
+public class Committee implements Serializable {
 
     /** Delegates in the Committee */
     private ArrayList<Delegate> delegates;
