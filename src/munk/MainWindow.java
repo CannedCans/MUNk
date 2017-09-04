@@ -12,6 +12,12 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JSplitPane;
 import java.awt.Window.Type;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.nio.file.Path;
 
 import javax.swing.JMenuBar;
@@ -119,5 +125,40 @@ public class MainWindow {
 
   public static String requestInfoPopup(String title, String infoRequested) {
     return "FILLER TEXT";
+  }
+  
+  /**
+   * Saves the current Committee out to path
+   * 
+   * @param path path to save the Committee to
+   * @throws IOException 
+   */
+  public static void saveToFile(String path) throws IOException {
+	FileOutputStream fileOutputStream = new FileOutputStream(path);
+	ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+	
+	objectOutputStream.writeObject(MainWindow.committee);
+	
+	objectOutputStream.close();
+	fileOutputStream.close();
+
+  }
+  
+  /**
+   * Loads the Committee at path into MainWindow.committee
+   * 
+   * @param path the path to load the Committee from
+   * @throws IOException 
+   * @throws ClassNotFoundException 
+   */
+  public static void loadFromFile(String path) throws IOException, ClassNotFoundException {
+	  FileInputStream fileInputStream = new FileInputStream(path);
+	  ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+	  
+	  MainWindow.committee = (Committee) objectInputStream.readObject();
+	  
+	  objectInputStream.close();
+	  fileInputStream.close();
+	  
   }
 }
