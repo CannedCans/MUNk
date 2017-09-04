@@ -24,11 +24,12 @@ import javax.swing.JMenuBar;
 import javax.swing.JToolBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 
 public class MainWindow {
 
-	private JFrame frmMunk;
+	private static JFrame frmMunk; //static due to showInputDialog in requestInfoPopup
 	public final String munkVersion = "0.1";
 	private Path savePath;
 	
@@ -127,7 +128,12 @@ public class MainWindow {
 	}
 
   public static String requestInfoPopup(String title, String infoRequested) {
-    return "FILLER TEXT";
+    
+	String requestedInfo = (String)JOptionPane.showInputDialog(frmMunk, infoRequested, title, JOptionPane.PLAIN_MESSAGE);
+	  
+	return requestedInfo;
+    
+    
   }
   
   /**
