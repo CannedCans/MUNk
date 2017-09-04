@@ -12,13 +12,13 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JSplitPane;
 import java.awt.Window.Type;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.nio.file.Path;
 
 import javax.swing.JMenuBar;
 import javax.swing.JToolBar;
@@ -31,7 +31,7 @@ public class MainWindow {
 
 	private static JFrame frmMunk; //static due to showInputDialog in requestInfoPopup
 	public final String munkVersion = "0.1";
-	private Path savePath;
+	private File saveFile;
 	
 	private static Committee committee;
 
@@ -149,8 +149,8 @@ public class MainWindow {
    * @param path path to save the Committee to
    * @throws IOException 
    */
-  public static void saveToFile(String path) throws IOException {
-	FileOutputStream fileOutputStream = new FileOutputStream(path);
+  public static void saveToFile(File file) throws IOException {
+	FileOutputStream fileOutputStream = new FileOutputStream(file);
 	ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
 	
 	objectOutputStream.writeObject(MainWindow.committee);
@@ -167,8 +167,8 @@ public class MainWindow {
    * @throws IOException 
    * @throws ClassNotFoundException 
    */
-  public static void loadFromFile(String path) throws IOException, ClassNotFoundException {
-	  FileInputStream fileInputStream = new FileInputStream(path);
+  public static void loadFromFile(File file) throws IOException, ClassNotFoundException {
+	  FileInputStream fileInputStream = new FileInputStream(file);
 	  ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
 	  
 	  MainWindow.committee = (Committee) objectInputStream.readObject();
