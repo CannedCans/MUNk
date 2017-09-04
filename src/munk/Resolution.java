@@ -47,6 +47,8 @@ public class Resolution {
      */
     public void addSponsor(Delegate delegate) {
 	    sponsors.add(delegate);
+	    
+	    //TODO: Update roll calls that have passed when the delegate was created with Absent
     }
 
     /**

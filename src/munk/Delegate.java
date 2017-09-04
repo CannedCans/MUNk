@@ -27,8 +27,6 @@ public class Delegate {
 		this.role = role;
 		shortRole = role;
 		notes = "";
-		
-		//TODO: Update roll calls that have passed when the delegate was created with Absent
 	}
 
   public String getShortRole() {

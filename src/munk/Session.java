@@ -40,5 +40,18 @@ public class Session {
 		return motions;
 	}
 	
+	/**
+	 * Returns the Delegate's roll call status for the Session
+	 * @param delegate the Delegate to get the status for
+	 * @return Roll Call Status for the Delegate
+	 */
+	public String getDelegateAttendance(Delegate delegate) {
+		if (rollCallInfo.containsKey(delegate)) {
+			return rollCallInfo.get(delegate);
+		} else {
+			return "Delegate did not exist at time of session";
+		}
+	}
+	
 	
 }
