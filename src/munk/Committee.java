@@ -62,4 +62,35 @@ public class Committee implements Serializable {
       }
     }
     
+    /**
+     * Returns all Resolutions in the Committee
+     * 
+     * @return ArrayList of Resolutions
+     */
+    public ArrayList<Resolution> getResolutions() {
+    	ArrayList<Resolution> resolutions = new ArrayList<Resolution>();
+    	
+    	for (Session session : sessions) {
+    		resolutions.addAll(session.getResolutions());
+    	}
+    	
+    	return resolutions;
+    }
+    
+    
+    /**
+     * Returns all Motions in the Committee
+     * 
+     * @return ArrayList of Motions
+     */
+    public ArrayList<Motion> getMotions() {
+    	ArrayList<Motion> motions = new ArrayList<Motion>();
+    	
+    	for (Session session : sessions) {
+    		motions.addAll(session.getMotions());
+    	}
+    	
+    	return motions;
+    }
+    
 }
