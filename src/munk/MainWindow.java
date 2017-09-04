@@ -121,6 +121,9 @@ public class MainWindow {
 		
 		JMenuItem aboutMenuItem = new JMenuItem("About");
 		helpMenu.add(aboutMenuItem);
+		
+		JMenuItem changelogMenuItem = new JMenuItem("Changelog");
+		helpMenu.add(changelogMenuItem);
 	}
 
   public static String requestInfoPopup(String title, String infoRequested) {
