@@ -7,12 +7,6 @@ public class Committee implements Serializable {
 
     /** Delegates in the Committee */
     private ArrayList<Delegate> delegates;
-
-    /** Resolutions introduced into the Committee. */
-    private ArrayList<Resolution> resolutions;
-
-    /** Motions introduced into the Committee. */
-    private ArrayList<Motion> motions;
     
     /** Sessions of the Committee. */
     private ArrayList<Session> sessions;
@@ -22,8 +16,6 @@ public class Committee implements Serializable {
 
     public Committee() {
         delegates = new ArrayList<Delegate>();
-        resolutions = new ArrayList<Resolution>(); //Duplicated code, might be fixable later.
-        motions = new ArrayList<Motion>();
         sessions = new ArrayList<Session>();
         currentSession = new Session();
         sessions.add(currentSession);
@@ -31,8 +23,6 @@ public class Committee implements Serializable {
 
     public Committee(ArrayList<Delegate> delegates) {
         this.delegates = delegates;
-        resolutions = new ArrayList<Resolution>();
-        motions = new ArrayList<Motion>();
     }
 
     /**
