@@ -31,4 +31,14 @@ public class Session {
 	public void rollCall(Delegate delegate, String state) {
 		rollCallInfo.put(delegate, state);
 	}
+
+	public ArrayList<Resolution> getResolutions() {
+		return resolutions;
+	}
+
+	public ArrayList<Motion> getMotions() {
+		return motions;
+	}
+	
+	
 }
