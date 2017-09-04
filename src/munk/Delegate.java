@@ -51,5 +51,9 @@ public class Delegate {
   public String getShortRole() {
     return shortRole;
   }
+  
+  public void setShortRole(String shortRole) {
+	  this.shortRole = shortRole;
+  }
 
 }
