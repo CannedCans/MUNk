@@ -56,4 +56,28 @@ public class Delegate {
 	  this.shortRole = shortRole;
   }
 
+  public String getRole() {
+	return role;
+  }
+
+  public void setRole(String role) {
+	this.role = role;
+  }
+
+  public String getDelegateName() {
+	return delegateName;
+  }
+
+  public void setDelegateName(String delegateName) {
+	this.delegateName = delegateName;
+  }
+
+  public String getDelegateSchool() {
+	return delegateSchool;
+  }
+
+  public void setDelegateSchool(String delegateSchool) {
+	this.delegateSchool = delegateSchool;
+  }
+
 }
