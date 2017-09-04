@@ -46,7 +46,7 @@ public class Resolution {
      *
      */
     public void addSponsor(Delegate delegate) {
-	sponsors.add(delegate);
+	    sponsors.add(delegate);
     }
 
     /**
@@ -55,7 +55,7 @@ public class Resolution {
      * @param delegate the Delegate to add to the signatories list
      */
     public void addSignatory(Delegate delegate) {
-	signatories.add(delegate);
+	    signatories.add(delegate);
     }
 
 }
