@@ -29,8 +29,33 @@ public class Resolution {
 		this.content = content;
 	}
 
+    /**
+     * Returns if a Delegate object is a sponsor of the Resolution
+     * 
+     * @param delegate the Delegate object being checked
+     * @return true if the Delegate is a sponsor, false otherwise
+     */
 	public boolean isSponsor(Delegate delegate) {
 		return sponsors.contains(delegate);
 	}
+
+    /**
+     * Adds a Delegate to the sponsors list for the Resolution
+     *
+     * @param delegate the Delegate to add to the sponsors list
+     *
+     */
+    public void addSponsor(Delegate delegate) {
+	sponsors.add(delegate);
+    }
+
+    /**
+     * Adds a Delegate to the signatories list for the Resolution
+     * 
+     * @param delegate the Delegate to add to the signatories list
+     */
+    public void addSignatory(Delegate delegate) {
+	signatories.add(delegate);
+    }
 
 }
