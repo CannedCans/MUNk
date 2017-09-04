@@ -48,7 +48,7 @@ public class Delegate {
 		}
 	}
 
-  public string getShortRole() {
+  public String getShortRole() {
     return shortRole;
   }
 

@@ -117,7 +117,7 @@ public class MainWindow {
 		helpMenu.add(aboutMenuItem);
 	}
 
-  public String requestInfoPopup(String title, String infoRequested) {
+  public static String requestInfoPopup(String title, String infoRequested) {
     return "FILLER TEXT";
   }
 }
