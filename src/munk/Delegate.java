@@ -19,10 +19,16 @@ public class Delegate {
 
 	/** The school that the Delegate attends. */
 	private String delegateSchool;
+	
+	/** Notes about the Delegate (either IC or OOC) */
+	private String notes;
 
 	public Delegate(String role) {
 		this.role = role;
 		shortRole = role;
+		notes = "";
+		
+		//TODO: Update roll calls that have passed when the delegate was created with Absent
 	}
 
   public String getShortRole() {
@@ -55,6 +61,14 @@ public class Delegate {
 
   public void setDelegateSchool(String delegateSchool) {
 	this.delegateSchool = delegateSchool;
+  }
+  
+  public String getNotes() {
+	  return notes;
+  }
+  
+  public void setNotes(String notes) {
+	  this.notes = notes;
   }
 
 }
