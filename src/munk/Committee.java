@@ -57,13 +57,6 @@ public class Committee implements Serializable {
     public void addResolution(ArrayList<Delegate> sponsors, ArrayList<Delegate> signatories, String title, String content) {
         Resolution resolution = new Resolution(sponsors, signatories, title, content);
 
-        for (Delegate delegate : sponsors) { //Also duplicated code, might be fixable
-            delegate.addResolution(resolution);
-        }
-
-        for (Delegate delegate : signatories) {
-            delegate.addResolution(resolution);
-        }
         currentSession.addResolution(resolution);
     }
     

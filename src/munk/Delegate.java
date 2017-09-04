@@ -20,32 +20,9 @@ public class Delegate {
 	/** The school that the Delegate attends. */
 	private String delegateSchool;
 
-	/** Motions the Delegate has introduced. */
-	private ArrayList<Motion> motions;
-
-	/** Resolutions the Delegate has sponsored. */
-	private ArrayList<Resolution> resolutions;
-
-	private ArrayList<Resolution> signatoryResolutions;
-
-	public Delegate() {
-		motions = new ArrayList<Motion>();
-		resolutions = new ArrayList<Resolution>();
-		signatoryResolutions = new ArrayList<Resolution>();
-	}
-
 	public Delegate(String role) {
-		this();
 		this.role = role;
 		shortRole = role;
-	}
-
-	public void addResolution(Resolution resolution) {
-		if (resolution.isSponsor(this)) {
-			this.resolutions.add(resolution);
-		} else {
-			this.signatoryResolutions.add(resolution);
-		}
 	}
 
   public String getShortRole() {
