@@ -51,7 +51,6 @@ public class LabelWindow {
 		borderLayout.setHgap(300);
 		windowFrame.setTitle(title);
 		windowFrame.setBounds(100, 100, 450, 300);
-		windowFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		label = new JLabel();
 		label.setText(content);
