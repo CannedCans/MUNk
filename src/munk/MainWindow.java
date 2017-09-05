@@ -282,7 +282,7 @@ public class MainWindow {
   /**
    * Refresh the GUI after reading in a file
    */
-  public void refreshGUI() {
+  private void refreshGUI() {
 	  
   }
 }
