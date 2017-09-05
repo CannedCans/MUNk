@@ -36,6 +36,7 @@ import javax.swing.JSpinner;
  */
 public class LabelWindow {
 	private JFrame windowFrame;
+	private JLabel label;
 	
 	/**
 	 * Creates a LabelWindow, setting visible status to visibility
@@ -74,7 +75,7 @@ public class LabelWindow {
 		windowFrame.setBounds(100, 100, 450, 300);
 		windowFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JLabel label = new JLabel();
+		label = new JLabel();
 		label.setText(content);
 		
 		windowFrame.getContentPane().add(label, BorderLayout.NORTH);
@@ -88,5 +89,23 @@ public class LabelWindow {
 	 */
 	public void setVisible(boolean visibility) {
 		windowFrame.setVisible(visibility);
+	}
+	
+	/**
+	 * Set the title of the window to title
+	 * 
+	 * @param title
+	 */
+	public void setTitle(String title) {
+		windowFrame.setTitle(title);
+	}
+	
+	/**
+	 * Set the content of the window's label to title
+	 * 
+	 * @param content
+	 */
+	public void setContent(String content) {
+		label.setText(content);
 	}
 }
