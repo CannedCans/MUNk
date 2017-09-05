@@ -24,10 +24,21 @@ public class Session {
 		rollCallInfo = new HashMap<Delegate, String>();
 	}
 	
+	/**
+	 * Adds a Resolution to the Session's list of Resolutions
+	 * 
+	 * @param resolution
+	 */
 	public void addResolution(Resolution resolution) {
 		resolutions.add(resolution);
 	}
 	
+	/**
+	 * Sets the roll call state of a Delegate to state
+	 * 
+	 * @param delegate
+	 * @param state
+	 */
 	public void rollCall(Delegate delegate, String state) {
 		rollCallInfo.put(delegate, state);
 	}
