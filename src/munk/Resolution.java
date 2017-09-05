@@ -60,4 +60,20 @@ public class Resolution {
 	    signatories.add(delegate);
     }
 
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public void setSponsors(ArrayList<Delegate> sponsors) {
+		this.sponsors = sponsors;
+	}
+
+	public void setSignatories(ArrayList<Delegate> signatories) {
+		this.signatories = signatories;
+	}
+
 }
