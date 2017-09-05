@@ -4,11 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Session {
-
-	/** Integer to store next Session number. */
-	private static int sessionCount = 1;
 	
-	/** Session number of this Session. */
+	/** Session number of this Session, unique to the Committee */
 	private int sessionNumber;
 	
 	private ArrayList<Resolution> resolutions;
@@ -17,8 +14,8 @@ public class Session {
 	
 	private HashMap<Delegate, String> rollCallInfo;
 	
-	public Session() {
-		sessionNumber = sessionCount++;
+	public Session(int sessionNumber) {
+		this.sessionNumber = sessionNumber;
 		resolutions = new ArrayList<Resolution>();
 		motions = new ArrayList<Motion>();
 		rollCallInfo = new HashMap<Delegate, String>();
@@ -62,6 +59,10 @@ public class Session {
 		} else {
 			return "Delegate did not exist at time of session";
 		}
+	}
+	
+	public int getSessionNumber() {
+		return sessionNumber;
 	}
 	
 	

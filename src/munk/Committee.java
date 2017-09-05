@@ -17,7 +17,7 @@ public class Committee implements Serializable {
     public Committee() {
         delegates = new ArrayList<Delegate>();
         sessions = new ArrayList<Session>();
-        currentSession = new Session();
+        currentSession = new Session(1);
         sessions.add(currentSession);
     }
 
@@ -51,7 +51,7 @@ public class Committee implements Serializable {
     }
     
     public void newSession() {
-    	currentSession = new Session();
+    	currentSession = new Session(currentSession.getSessionNumber());
     	sessions.add(currentSession);
     }
     
