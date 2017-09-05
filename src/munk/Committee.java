@@ -9,21 +9,25 @@ public class Committee implements Serializable {
     /** Delegates in the Committee */
     private HashMap<Integer, Delegate> delegates;
     
+    /** User friendly name for the Committee */
+    private String committeeName;
+    
     /** Sessions of the Committee. */
     private ArrayList<Session> sessions;
     
     /** The current Session of the Committee. */
     private Session currentSession;
 
-    public Committee() {
+    public Committee(String committeeName) {
+    	this.committeeName = committeeName;
         delegates = new HashMap<Integer, Delegate>();
         sessions = new ArrayList<Session>();
         currentSession = new Session(1);
         sessions.add(currentSession);
     }
 
-    public Committee(ArrayList<Delegate> delegates) {
-    	this();
+    public Committee(ArrayList<Delegate> delegates, String committeeName) {
+    	this(committeeName);
         for (Delegate delegate : delegates) {
         	this.addDelegate(delegate);
         }
@@ -43,10 +47,10 @@ public class Committee implements Serializable {
     }
     
     /**
-     * Updates a Delegate's roll call information.
+     * Updates a Delegate's roll call information for the current Session.
      * 
      * @param delegate Delegate to update
-     * @param rollCallState Roll Call Information for the Delegate for the Session
+     * @param rollCallState Roll Call Information for the Delegate for the current Session
      */
     public void updateRollCall(Delegate delegate, String rollCallState) {
     	currentSession.rollCall(delegate, rollCallState);
@@ -118,4 +122,14 @@ public class Committee implements Serializable {
     		return null;
     	}
     }
+
+	public String getCommitteeName() {
+		return committeeName;
+	}
+
+	public void setCommitteeName(String committeeName) {
+		this.committeeName = committeeName;
+	}
+    
+    
 }

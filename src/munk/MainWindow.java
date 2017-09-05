@@ -45,7 +45,7 @@ public class MainWindow {
 					MainWindow window = new MainWindow();
 					window.frmMunk.setVisible(true);
 					window.frmMunk.setExtendedState(JFrame.MAXIMIZED_BOTH);
-					committee = new Committee();
+					committee = new Committee("Default Name");
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -67,7 +67,7 @@ public class MainWindow {
 		frmMunk = new JFrame();
 		BorderLayout borderLayout = (BorderLayout) frmMunk.getContentPane().getLayout();
 		borderLayout.setHgap(300);
-		frmMunk.setTitle("MUNk " + munkVersion);
+		frmMunk.setTitle("MUNk " + munkVersion + " | " + committee.getCommitteeName());
 		frmMunk.setBounds(100, 100, 450, 300);
 		frmMunk.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
