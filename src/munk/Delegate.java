@@ -22,6 +22,9 @@ public class Delegate {
 	
 	/** Notes about the Delegate (either IC or OOC) */
 	private String notes;
+	
+	/** Integer ID unique to the Delegate within the Committee */
+	private int delegateID;
 
 	public Delegate(String role) {
 		this.role = role;
