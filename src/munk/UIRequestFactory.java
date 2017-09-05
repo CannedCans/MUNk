@@ -2,6 +2,8 @@ package munk;
 
 import java.io.File;
 
+import javax.swing.JFileChooser;
+
 public class UIRequestFactory {
 
 	public static Committee makeNewCommittee() {
@@ -12,7 +14,8 @@ public class UIRequestFactory {
 		return MainWindow.requestSimpleInfoPopup("Committee Name Update", "Please provide the new name for your Committee");
 	}
 	
-	public static File selectSaveFile() {
-		return null;
+	public static File selectFile() {
+		JFileChooser fileChooser = MainWindow.createFileChooser();
+		return fileChooser.getSelectedFile();
 	}
 }

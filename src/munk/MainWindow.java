@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JList;
 import javax.swing.JTree;
 import javax.swing.SwingConstants;
@@ -202,7 +203,7 @@ public class MainWindow {
    */
   private void save() {
 	  if (saveFile == null) {
-		  saveFile = UIRequestFactory.selectSaveFile();
+		  saveFile = UIRequestFactory.selectFile();
 	  }
 	  
 	  if (saveFile != null) { //User chose not to select a savefile still
@@ -220,5 +221,11 @@ public class MainWindow {
   private void saveAs() {
 	  saveFile = null;
 	  save();
+  }
+  
+  public static JFileChooser createFileChooser() {
+	  JFileChooser fileChooser = new JFileChooser();
+	  fileChooser.showOpenDialog(frmMunk);
+	  return fileChooser;
   }
 }
