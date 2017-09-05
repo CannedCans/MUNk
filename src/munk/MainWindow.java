@@ -16,6 +16,8 @@ import javax.swing.JSplitPane;
 import java.awt.Window.Type;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -36,6 +38,8 @@ public class MainWindow {
 	private static JFrame frmMunk; //static due to showInputDialog in requestInfoPopup
 	public final String munkVersion = "0.1";
 	private File saveFile;
+	
+	private JLabel committeeNameLabel;
 	
 	private static Committee committee;
 
@@ -90,6 +94,32 @@ public class MainWindow {
 		timerPane.setContinuousLayout(true);
 		timerPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
 		frmMunk.getContentPane().add(timerPane, BorderLayout.WEST);
+		
+		committeeNameLabel = new JLabel(committee.getCommitteeName());
+		committeeNameLabel.addMouseListener(new MouseListener() {
+			public void mouseClicked(MouseEvent e) {
+				if (e.getClickCount() >= 2) {
+					renameCommittee();
+				}
+			}
+			
+			public void mousePressed(MouseEvent e) {
+				
+			}
+			
+			public void mouseEntered(MouseEvent e) {
+				
+			}
+			
+			public void mouseExited(MouseEvent e) {
+				
+			}
+
+			public void mouseReleased(MouseEvent e) {
+				
+			}
+		});
+		frmMunk.getContentPane().add(committeeNameLabel, BorderLayout.NORTH);
 		
 		JMenuBar menuBar = new JMenuBar();
 		frmMunk.setJMenuBar(menuBar);
@@ -207,7 +237,11 @@ public class MainWindow {
    * then renames the Committee to that name. Updates the UI
    */
   private void renameCommittee() {
-	  renameCommittee(MainWindow.requestSimpleInfoPopup("Committee Name Update", "Please provide the new name for your Committee"));
+	  String newName = MainWindow.requestSimpleInfoPopup("Committee Name Update", "Please provide the new name for your Committee");
+	  
+	  if (newName != null) {
+		  renameCommittee(newName);
+	  }
   }
   
   /**
@@ -218,6 +252,7 @@ public class MainWindow {
   private void renameCommittee(String newName) {
 	  committee.setCommitteeName(newName);
 	  frmMunk.setTitle("MUNk" + munkVersion + " | " + newName);
+	  committeeNameLabel.setText(newName);
   }
   
   /**
@@ -283,6 +318,7 @@ public class MainWindow {
    * Refresh the GUI after reading in a file
    */
   private void refreshGUI() {
-	  
+	  frmMunk.setTitle("MUNk " + munkVersion + " | " + committee.getCommitteeName());
+	  committeeNameLabel.setText(committee.getCommitteeName());
   }
 }
