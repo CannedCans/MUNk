@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public class Session {
 	
-	/** Session number of this Session, unique to the Committee */
+	/** Session number of this Session, unique within the Committee */
 	private int sessionNumber;
 	
 	private ArrayList<Resolution> resolutions;
