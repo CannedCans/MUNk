@@ -191,7 +191,7 @@ public class MainWindow {
    * then renames the Committee to that name. Updates the UI
    */
   private void renameCommittee() {
-	  renameCommittee(UIRequestFactory.newCommitteeName());
+	  renameCommittee(MainWindow.requestSimpleInfoPopup("Committee Name Update", "Please provide the new name for your Committee"));
   }
   
   /**
@@ -210,7 +210,7 @@ public class MainWindow {
    */
   private void save() {
 	  if (saveFile == null) {
-		  saveFile = UIRequestFactory.selectFile();
+		  saveFile = selectFile("Save as...");
 	  }
 	  
 	  if (saveFile != null) { //User chose not to select a savefile still
@@ -230,9 +230,16 @@ public class MainWindow {
 	  save();
   }
   
-  public static JFileChooser createFileChooser() {
+  /**
+   * Creates a File Select Dialog with the title title, returning the file selected
+   * 
+   * @param title title of the dialog
+   * @return file selected
+   */
+  public static File selectFile(String title) {
 	  JFileChooser fileChooser = new JFileChooser();
+	  fileChooser.setDialogTitle(title);
 	  fileChooser.showOpenDialog(frmMunk);
-	  return fileChooser;
+	  return fileChooser.getSelectedFile();
   }
 }
