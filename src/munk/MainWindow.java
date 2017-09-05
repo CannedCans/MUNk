@@ -149,7 +149,7 @@ public class MainWindow {
    * @param path path to save the Committee to
    * @throws IOException 
    */
-  public static void saveToFile(File file) throws IOException {
+  private static void saveToFile(File file) throws IOException {
 	FileOutputStream fileOutputStream = new FileOutputStream(file);
 	ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
 	
@@ -167,7 +167,7 @@ public class MainWindow {
    * @throws IOException 
    * @throws ClassNotFoundException 
    */
-  public static void loadFromFile(File file) throws IOException, ClassNotFoundException {
+  private static void loadFromFile(File file) throws IOException, ClassNotFoundException {
 	  FileInputStream fileInputStream = new FileInputStream(file);
 	  ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
 	  
