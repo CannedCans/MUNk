@@ -13,6 +13,8 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JSplitPane;
 import java.awt.Window.Type;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -98,6 +100,11 @@ public class MainWindow {
 		fileMenu.add(openFileButton);
 		
 		JMenuItem saveMenuButton = new JMenuItem("Save");
+		saveMenuButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				save();
+			}
+		});
 		fileMenu.add(saveMenuButton);
 		
 		JMenuItem saveAsMenuButton = new JMenuItem("Save as...");
