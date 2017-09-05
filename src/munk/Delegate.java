@@ -24,12 +24,13 @@ public class Delegate {
 	private String notes;
 	
 	/** Integer ID unique to the Delegate within the Committee */
-	private int delegateID;
+	private Integer delegateID;
 
-	public Delegate(String role) {
+	public Delegate(String role, Integer delegateID) {
 		this.role = role;
 		shortRole = role;
 		notes = "";
+		this.delegateID = delegateID;
 	}
 
   public String getShortRole() {
@@ -70,6 +71,15 @@ public class Delegate {
   
   public void setNotes(String notes) {
 	  this.notes = notes;
+  }
+  
+  public Integer getDelegateID() {
+	  return delegateID;
+  }
+  
+  public void setDelegateID(Integer id) {
+	  delegateID = id;
+	  //TODO: Update any UI references using this ID to access the Delegate
   }
 
 }

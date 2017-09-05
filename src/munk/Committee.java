@@ -2,11 +2,12 @@ package munk;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Committee implements Serializable {
 
     /** Delegates in the Committee */
-    private ArrayList<Delegate> delegates;
+    private HashMap<Integer, Delegate> delegates;
     
     /** Sessions of the Committee. */
     private ArrayList<Session> sessions;
@@ -15,14 +16,17 @@ public class Committee implements Serializable {
     private Session currentSession;
 
     public Committee() {
-        delegates = new ArrayList<Delegate>();
+        delegates = new HashMap<Integer, Delegate>();
         sessions = new ArrayList<Session>();
         currentSession = new Session(1);
         sessions.add(currentSession);
     }
 
     public Committee(ArrayList<Delegate> delegates) {
-        this.delegates = delegates;
+    	this();
+        for (Delegate delegate : delegates) {
+        	this.addDelegate(delegate);
+        }
     }
 
     /**
@@ -31,7 +35,11 @@ public class Committee implements Serializable {
      * @param delegate Delegate to add
      */
     public void addDelegate(Delegate delegate) {
-        this.delegates.add(delegate);
+        while (delegates.containsKey(delegate.getDelegateID())) {
+        	delegate.setDelegateID(delegate.getDelegateID() + 1);
+        }
+        
+        delegates.put(delegate.getDelegateID(), delegate);
     }
     
     /**
@@ -56,7 +64,7 @@ public class Committee implements Serializable {
     }
     
     public void rollCall() {
-      for (Delegate delegate : delegates) {
+      for (Delegate delegate : delegates.values()) {
           String state = MainWindow.requestInfoPopup("Roll Call!", "Roll call info for: " + delegate.getShortRole());
           updateRollCall(delegate, state);
       }
@@ -93,4 +101,17 @@ public class Committee implements Serializable {
     	return motions;
     }
     
+    /**
+     * Gets the first Delegate with the delegateID id
+     * 
+     * @param id
+     * @return first Delegate with a matching delegateID, null otherwise
+     */
+    public Delegate getDelegateByID(int id) {
+    	if (delegates.containsKey(id)) {
+    		return delegates.get(id);
+    	} else {
+    		return null;
+    	}
+    }
 }
