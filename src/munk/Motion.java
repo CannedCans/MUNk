@@ -1,6 +1,8 @@
 package munk;
 
-public class Motion {
+import java.io.Serializable;
+
+public class Motion implements Serializable {
 	
 	/** The Delegate that introduced the Motion. */
 	private Delegate author;

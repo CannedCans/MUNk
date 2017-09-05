@@ -1,8 +1,9 @@
 package munk;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Resolution {
+public class Resolution implements Serializable {
 
 	/** The Delegates that sponsored the Resolution. */
 	private ArrayList<Delegate> sponsors;

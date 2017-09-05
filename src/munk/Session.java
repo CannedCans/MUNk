@@ -1,9 +1,10 @@
 package munk;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Session {
+public class Session implements Serializable {
 	
 	/** Session number of this Session, unique within the Committee */
 	private int sessionNumber;

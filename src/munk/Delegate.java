@@ -1,8 +1,9 @@
 package munk;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Delegate {
+public class Delegate implements Serializable {
 
 	/** The country/character the delegate is representing/playing. */
 	private String role;
