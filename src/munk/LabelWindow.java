@@ -4,29 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JTabbedPane;
 import java.awt.BorderLayout;
-import javax.swing.JButton;
-import javax.swing.JList;
-import javax.swing.JTree;
-import javax.swing.SwingConstants;
-import javax.swing.JTextField;
-import javax.swing.JSplitPane;
-import java.awt.Window.Type;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-
-import javax.swing.JMenuBar;
-import javax.swing.JToolBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JSpinner;
 
 /**
  * A simple GUI window that contains just one Label (for displaying some content), eg. changelogs
