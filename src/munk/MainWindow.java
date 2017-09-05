@@ -42,10 +42,10 @@ public class MainWindow {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					committee = new Committee("Untitled Committee");
 					MainWindow window = new MainWindow();
 					window.frmMunk.setVisible(true);
 					window.frmMunk.setExtendedState(JFrame.MAXIMIZED_BOTH);
-					committee = new Committee("Default Name");
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
