@@ -58,8 +58,12 @@ public class Committee implements Serializable {
         currentSession.addResolution(resolution);
     }
     
+    /**
+     * Starts a new Session
+     * 
+     */
     public void newSession() {
-    	currentSession = new Session(currentSession.getSessionNumber());
+    	currentSession = new Session(currentSession.getSessionNumber() + 1);
     	sessions.add(currentSession);
     }
     
