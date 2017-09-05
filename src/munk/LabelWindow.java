@@ -52,8 +52,7 @@ public class LabelWindow {
 		windowFrame.setTitle(title);
 		windowFrame.setBounds(100, 100, 450, 300);
 		
-		label = new JLabel();
-		label.setText(content);
+		label = new JLabel(content);
 		
 		windowFrame.getContentPane().add(label, BorderLayout.NORTH);
 		
