@@ -73,7 +73,7 @@ public class Committee implements Serializable {
     
     public void rollCall() {
       for (Delegate delegate : delegates.values()) {
-          String state = MainWindow.requestInfoPopup("Roll Call!", "Roll call info for: " + delegate.getShortRole());
+          String state = MainWindow.requestSimpleInfoPopup("Roll Call!", "Roll call info for: " + delegate.getShortRole());
           updateRollCall(delegate, state);
       }
     }

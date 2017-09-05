@@ -134,7 +134,7 @@ public class MainWindow {
    * @param infoRequested Text within the popup giving more information
    * @return a String containing the user's response
    */
-  public static String requestInfoPopup(String title, String infoRequested) {
+  public static String requestSimpleInfoPopup(String title, String infoRequested) {
     
 	String requestedInfo = (String)JOptionPane.showInputDialog(frmMunk, infoRequested, title, JOptionPane.PLAIN_MESSAGE);
 	  
