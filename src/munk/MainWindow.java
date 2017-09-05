@@ -3,6 +3,7 @@ package munk;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JTabbedPane;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
@@ -97,6 +98,11 @@ public class MainWindow {
 		menuBar.add(fileMenu);
 		
 		JMenuItem openFileButton = new JMenuItem("Open file");
+		openFileButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				openFile();
+			}
+		});
 		fileMenu.add(openFileButton);
 		
 		JMenuItem saveMenuButton = new JMenuItem("Save");
@@ -108,6 +114,11 @@ public class MainWindow {
 		fileMenu.add(saveMenuButton);
 		
 		JMenuItem saveAsMenuButton = new JMenuItem("Save as...");
+		saveAsMenuButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				saveAs();
+			}
+		});
 		fileMenu.add(saveAsMenuButton);
 		
 		JMenuItem settingsMenuItem = new JMenuItem("Settings");
@@ -129,6 +140,11 @@ public class MainWindow {
 		menuBar.add(helpMenu);
 		
 		JMenuItem aboutMenuItem = new JMenuItem("About");
+		aboutMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "Software to assist with running a Model UN Committee. Work in progress.", "About MUNk v. " + munkVersion, JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
 		helpMenu.add(aboutMenuItem);
 		
 		JMenuItem changelogMenuItem = new JMenuItem("Changelog");
@@ -241,5 +257,32 @@ public class MainWindow {
 	  fileChooser.setDialogTitle(title);
 	  fileChooser.showOpenDialog(frmMunk);
 	  return fileChooser.getSelectedFile();
+  }
+  
+  /**
+   * Creates a GUI popup to select a file to open.
+   * 
+   * If a valid file is selected, the file is read and that becomes the new
+   * save file.
+   * 
+   */
+  private void openFile() {
+	  File selectedFile = selectFile("Open...");
+	  if (selectedFile != null) {
+		  try {
+			  saveFile = selectedFile;
+			  loadFromFile(saveFile);
+			  refreshGUI();
+		  } catch (Exception e) {
+			  e.printStackTrace();
+		  }
+	  }
+  }
+  
+  /**
+   * Refresh the GUI after reading in a file
+   */
+  public void refreshGUI() {
+	  
   }
 }
