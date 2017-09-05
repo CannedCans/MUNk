@@ -205,7 +205,7 @@ public class MainWindow {
 		  saveFile = UIRequestFactory.selectSaveFile();
 	  }
 	  
-	  if (saveFile == null) { //User chose not to select a savefile still
+	  if (saveFile != null) { //User chose not to select a savefile still
 		  try {
 		  	saveToFile(saveFile);
 	  	} catch (Exception e) {
