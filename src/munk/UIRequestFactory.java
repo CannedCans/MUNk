@@ -1,5 +1,7 @@
 package munk;
 
+import java.io.File;
+
 public class UIRequestFactory {
 
 	public static Committee makeNewCommittee() {
@@ -8,5 +10,9 @@ public class UIRequestFactory {
 	
 	public static String newCommitteeName() {
 		return MainWindow.requestSimpleInfoPopup("Committee Name Update", "Please provide the new name for your Committee");
+	}
+	
+	public static File selectSaveFile() {
+		return null;
 	}
 }

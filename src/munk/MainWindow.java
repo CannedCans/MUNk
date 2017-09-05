@@ -177,4 +177,48 @@ public class MainWindow {
 	  fileInputStream.close();
 	  
   }
+  
+  /**
+   * Make a call to the UI requesting information on what the Committee should be renamed to
+   * then renames the Committee to that name. Updates the UI
+   */
+  private void renameCommittee() {
+	  renameCommittee(UIRequestFactory.newCommitteeName());
+  }
+  
+  /**
+   * Renames the Committee to the new name, updating the UI.
+   * 
+   * @param newName
+   */
+  private void renameCommittee(String newName) {
+	  committee.setCommitteeName(newName);
+	  frmMunk.setTitle("MUNk" + munkVersion + " | " + newName);
+  }
+  
+  /**
+   * Saves the file to the already selected Save File. Selects one
+   * from the UI if no save file is selected. 
+   */
+  private void save() {
+	  if (saveFile == null) {
+		  saveFile = UIRequestFactory.selectSaveFile();
+	  }
+	  
+	  if (saveFile == null) { //User chose not to select a savefile still
+		  try {
+		  	saveToFile(saveFile);
+	  	} catch (Exception e) {
+		  	e.printStackTrace();
+	  	}
+	  }
+  }
+  
+  /**
+   * Resets the selected save file and performs a save
+   */
+  private void saveAs() {
+	  saveFile = null;
+	  save();
+  }
 }
