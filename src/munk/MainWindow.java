@@ -356,7 +356,7 @@ public class MainWindow {
    * @param title
    * @param content
    */
-  public void createInformationPopup(String title, String content) {
+  public static void createInformationPopup(String title, String content) {
 	  JOptionPane.showMessageDialog(frmMunk, content, title, JOptionPane.INFORMATION_MESSAGE);
   }
 }
