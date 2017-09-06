@@ -129,7 +129,15 @@ public class MainWindow {
 		JMenu fileMenu = new JMenu("File");
 		menuBar.add(fileMenu);
 		
-		JMenuItem openFileButton = new JMenuItem("Open file");
+		JMenuItem newFileButton = new JMenuItem("New...");
+		newFileButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				newFile();
+			}
+		});
+		fileMenu.add(newFileButton);
+		
+		JMenuItem openFileButton = new JMenuItem("Open...");
 		openFileButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				openFile();
@@ -331,5 +339,14 @@ public class MainWindow {
   private void refreshGUI() {
 	  frmMunk.setTitle("MUNk " + munkVersion + " | " + committee.getCommitteeName());
 	  committeeNameLabel.setText(committee.getCommitteeName());
+  }
+  
+  /**
+   * Resets the GUI and model to have a new Committee, sets the saveFile to null
+   */
+  private void newFile() {
+	  committee = new Committee("Untitled Committee");
+	  saveFile = null;
+	  refreshGUI();
   }
 }
