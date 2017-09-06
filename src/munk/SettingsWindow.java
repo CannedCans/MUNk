@@ -2,9 +2,10 @@ package munk;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.Properties;
 
 /**
- * A window for displaying/changing/accessing program settings
+ * A window for displaying/changing/accessing program settings (properties)
  * 
  * @author CannedCans
  *
@@ -12,12 +13,11 @@ import java.util.HashMap;
 public class SettingsWindow extends AbstractSimpleWindow {
 	
 	/** HashMap mapping a String of settingName to String settingValue */
-	private HashMap<String, String> settingsValueHashmap = new HashMap<String, String>();
+	private Properties propertiesList = new Properties();
 	
 	public SettingsWindow() {
 		super("Settings");
-		resetToDefault();
-		loadSettings();
+		loadProperties();
 	}
 	
 	/**
@@ -28,62 +28,66 @@ public class SettingsWindow extends AbstractSimpleWindow {
 	}
 	
 	/**
-	 * Returns the setting's value as a String, null otherwise
+	 * Returns the property's value as a String, null otherwise
 	 * 
-	 * @param setting the setting to access
-	 * @return setting's value if available, null otherwise
+	 * @param property the property to access
+	 * @return property's value if available, null otherwise
 	 */
-	private String getSettingValue(String setting) {
-		if (settingsValueHashmap.containsKey(setting)) {
-			return settingsValueHashmap.get(setting);
+	private String getPropertyValue(String property) {
+		if (propertiesList.containsKey(property)) {
+			return propertiesList.getProperty(property);
 		} else {
 			return null;
 		}
 	}
 	
 	/**
-	 * Set's the setting's value to value
+	 * Set's the property's value to value
 	 * 
-	 * @param setting
+	 * @param property
 	 * @param value
 	 */
-	private void setSettingValue(String setting, String value) {
+	private void setPropertyValue(String property, String value) {
 		
 	}
 	
 	/**
-	 * Loads settings from the default settings file, creating it if
+	 * Loads settings/properties from the default settings file, creating it if
 	 * it does not exist.
 	 */
-	private void loadSettings() {
-		File settingsFile = new File("config.conf");
+	private void loadProperties() {
+		File settingsFile = new File("properties.xml");
 		
 		if (settingsFile.isFile()) {
-			readSettingsFromFile(settingsFile);
+			propertiesList = readPropertiesFromFile(settingsFile);
+			//TODO: Validate any missing settings (from previous versions), loading from defaults if not in the file
 		} else if (settingsFile.isDirectory()) {
 			//Rely on default settings, do nothing to avoid messing up the system
-			MainWindow.createInformationPopup("Settings Unable to Load", "The settings file location config.conf is detected as a directory and was unable to load. Please rename the directory to have a configuratio file generated.");
+			MainWindow.createInformationPopup("Settings Unable to Load", "The settings file location properties.xml is detected as a directory and was unable to load. Please rename the directory to have a configuratio file generated.");
 		} else { //Nothing is at the path
-			saveSettingsToFile(settingsFile);
+			resetToDefault();
+			savePropertiesToFile(settingsFile, propertiesList);
 			MainWindow.createInformationPopup("Settings File Created", "A configuration file was created with the default MUNk settings in settings.conf");
 		}
 	}
 	
 	/**
-	 * Loads settings from the File specified
+	 * Loads properties from the File specified
 	 * 
 	 * @param file
+	 * @return properties object with the properties in File
 	 */
-	private void readSettingsFromFile(File file) {
-		
+	private Properties readPropertiesFromFile(File file) {
+		return null;
 	}
 	
 	/**
-	 * Saves the settings to the File specified
+	 * Saves the properties to the File specified
 	 * 
 	 * @param file
+	 * @param properties properties to be saved
 	 */
-	private void saveSettingsToFile(File file) {
+	private void savePropertiesToFile(File file, Properties properties) {
 		
 	}
 
