@@ -51,4 +51,5 @@ public abstract class AbstractSimpleWindow {
 	public boolean isVisible() {
 		return frame.isVisible();
 	}
+	
 }

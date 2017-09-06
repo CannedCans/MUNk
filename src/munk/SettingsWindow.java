@@ -12,43 +12,20 @@ import java.util.Properties;
  */
 public class SettingsWindow extends AbstractSimpleWindow {
 	
-	/** HashMap mapping a String of settingName to String settingValue */
-	private Properties propertiesList = new Properties();
+	/** Properties Object mapping a String of settingName to String settingValue */
+	private Properties propertiesList;
+	
+	/** Default Properties for MUNk */
+	private Properties defaultPropertiesList;
 	
 	public SettingsWindow() {
 		super("Settings");
+		
+		defaultPropertiesList = generateDefaultProperties();
+		propertiesList = defaultPropertiesList;
+		
 		loadProperties();
-	}
-	
-	/**
-	 * Resets the settings to the default settings for MUNk
-	 */
-	private void resetToDefault() {
-		
-	}
-	
-	/**
-	 * Returns the property's value as a String, null otherwise
-	 * 
-	 * @param property the property to access
-	 * @return property's value if available, null otherwise
-	 */
-	private String getPropertyValue(String property) {
-		if (propertiesList.containsKey(property)) {
-			return propertiesList.getProperty(property);
-		} else {
-			return null;
-		}
-	}
-	
-	/**
-	 * Set's the property's value to value
-	 * 
-	 * @param property
-	 * @param value
-	 */
-	private void setPropertyValue(String property, String value) {
-		
+		generateGUI();
 	}
 	
 	/**
@@ -63,11 +40,10 @@ public class SettingsWindow extends AbstractSimpleWindow {
 			//TODO: Validate any missing settings (from previous versions), loading from defaults if not in the file
 		} else if (settingsFile.isDirectory()) {
 			//Rely on default settings, do nothing to avoid messing up the system
-			MainWindow.createInformationPopup("Settings Unable to Load", "The settings file location properties.xml is detected as a directory and was unable to load. Please rename the directory to have a configuratio file generated.");
+			MainWindow.createInformationPopup("Settings Unable to Load", "The settings file location properties.xml is detected as a directory and was unable to load. Please rename the directory to have a configuration file generated.");
 		} else { //Nothing is at the path
-			resetToDefault();
 			savePropertiesToFile(settingsFile, propertiesList);
-			MainWindow.createInformationPopup("Settings File Created", "A configuration file was created with the default MUNk settings in settings.conf");
+			MainWindow.createInformationPopup("Settings File Created", "A configuration file was created with the default MUNk settings in properties.xml");
 		}
 	}
 	
@@ -88,6 +64,22 @@ public class SettingsWindow extends AbstractSimpleWindow {
 	 * @param properties properties to be saved
 	 */
 	private void savePropertiesToFile(File file, Properties properties) {
+		
+	}
+	
+	/**
+	 * Generates a default Properties object for the version and returns it
+	 * 
+	 * @return default Properties object
+	 */
+	private Properties generateDefaultProperties() {
+		return new Properties();
+	}
+	
+	/**
+	 * Generate GUI components specific to this inheriting object
+	 */
+	private void generateGUI() {
 		
 	}
 
