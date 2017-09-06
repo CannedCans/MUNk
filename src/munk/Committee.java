@@ -7,21 +7,25 @@ import java.util.HashMap;
 public class Committee implements Serializable {
 
     /** Delegates in the Committee */
-    private HashMap<Integer, Delegate> delegates;
+    private HashMap<Integer, Delegate> delegates = new HashMap<Integer, Delegate>();
     
     /** User friendly name for the Committee */
     private String committeeName;
     
     /** Sessions of the Committee. */
-    private ArrayList<Session> sessions;
+    private ArrayList<Session> sessions = new ArrayList<Session>();
     
     /** The current Session of the Committee. */
     private Session currentSession;
+    
+    /** The Primary SpeakersList for the Committee */
+    private SpeakersList<Delegate> primarySpeakersList = new SpeakersList<>();
+    
+    /** The Secondary SpeakersList for the Committee */
+    private SpeakersList<Delegate> secondarySpeakersList = new SpeakersList<>();
 
     public Committee(String committeeName) {
     	this.committeeName = committeeName;
-        delegates = new HashMap<Integer, Delegate>();
-        sessions = new ArrayList<Session>();
         currentSession = new Session(1);
         sessions.add(currentSession);
     }
