@@ -189,7 +189,7 @@ public class MainWindow {
 		JMenuItem aboutMenuItem = new JMenuItem("About");
 		aboutMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(frmMunk, "Software to assist with running a Model UN Committee. Work in progress.", "About MUNk v. " + munkVersion, JOptionPane.INFORMATION_MESSAGE);
+				createInformationPopup("About MUNk v. " + munkVersion, "Software to assist with running a Model UN Committee. Work in progress.");
 			}
 		});
 		helpMenu.add(aboutMenuItem);
@@ -348,5 +348,15 @@ public class MainWindow {
 	  committee = new Committee("Untitled Committee");
 	  saveFile = null;
 	  refreshGUI();
+  }
+  
+  /**
+   * Creates an information popup with title <title> and content <content>
+   * 
+   * @param title
+   * @param content
+   */
+  public void createInformationPopup(String title, String content) {
+	  JOptionPane.showMessageDialog(frmMunk, content, title, JOptionPane.INFORMATION_MESSAGE);
   }
 }
