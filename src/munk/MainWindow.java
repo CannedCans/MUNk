@@ -42,6 +42,8 @@ public class MainWindow {
 	private JLabel committeeNameLabel;
 	
 	private static Committee committee;
+	
+	private SettingsWindow settingsWindow;
 
 	/**
 	 * Launch the application.
@@ -152,6 +154,13 @@ public class MainWindow {
 		fileMenu.add(saveAsMenuButton);
 		
 		JMenuItem settingsMenuItem = new JMenuItem("Settings");
+		settingsMenuItem.addActionListener(new ActionListener() { 
+			public void actionPerformed(ActionEvent e) {
+				if (!(settingsWindow.isVisible())) {
+					settingsWindow.setVisibility(true);
+				}
+			}
+		});
 		fileMenu.add(settingsMenuItem);
 		
 		JMenu windowsMenuItem = new JMenu("Windows");
@@ -172,13 +181,15 @@ public class MainWindow {
 		JMenuItem aboutMenuItem = new JMenuItem("About");
 		aboutMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Software to assist with running a Model UN Committee. Work in progress.", "About MUNk v. " + munkVersion, JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(frmMunk, "Software to assist with running a Model UN Committee. Work in progress.", "About MUNk v. " + munkVersion, JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		helpMenu.add(aboutMenuItem);
 		
 		JMenuItem changelogMenuItem = new JMenuItem("Changelog");
 		helpMenu.add(changelogMenuItem);
+		
+		settingsWindow = new SettingsWindow();
 	}
 
   /**
@@ -251,7 +262,7 @@ public class MainWindow {
    */
   private void renameCommittee(String newName) {
 	  committee.setCommitteeName(newName);
-	  frmMunk.setTitle("MUNk" + munkVersion + " | " + newName);
+	  frmMunk.setTitle("MUNk " + munkVersion + " | " + newName);
 	  committeeNameLabel.setText(newName);
   }
   
