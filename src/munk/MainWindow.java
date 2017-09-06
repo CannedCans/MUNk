@@ -222,7 +222,7 @@ public class MainWindow {
    * @param path path to save the Committee to
    * @throws IOException 
    */
-  private static void saveToFile(File file) throws IOException {
+  private static void saveCommitteeToFile(File file) throws IOException {
 	FileOutputStream fileOutputStream = new FileOutputStream(file);
 	ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
 	
@@ -240,7 +240,7 @@ public class MainWindow {
    * @throws IOException 
    * @throws ClassNotFoundException 
    */
-  private static void loadFromFile(File file) throws IOException, ClassNotFoundException {
+  private static void loadCommitteeFromFile(File file) throws IOException, ClassNotFoundException {
 	  FileInputStream fileInputStream = new FileInputStream(file);
 	  ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
 	  
@@ -285,7 +285,7 @@ public class MainWindow {
 	  
 	  if (saveFile != null) { //User chose not to select a savefile still
 		  try {
-		  	saveToFile(saveFile);
+		  	saveCommitteeToFile(saveFile);
 	  	} catch (Exception e) {
 		  	e.printStackTrace();
 	  	}
@@ -325,7 +325,7 @@ public class MainWindow {
 	  if (selectedFile != null) {
 		  try {
 			  saveFile = selectedFile;
-			  loadFromFile(saveFile);
+			  loadCommitteeFromFile(saveFile);
 			  refreshGUI();
 		  } catch (Exception e) {
 			  e.printStackTrace();
