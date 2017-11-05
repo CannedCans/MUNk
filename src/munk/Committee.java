@@ -43,7 +43,8 @@ public class Committee implements Serializable {
      * @param delegate Delegate to add
      */
     public void addDelegate(Delegate delegate) {
-        while (delegates.containsKey(delegate.getDelegateID())) {
+	// Generate a unique Delegate id to be used in the HashMap for lookup and by GUI elements
+	while (delegates.containsKey(delegate.getDelegateID())) {
         	delegate.setDelegateID(delegate.getDelegateID() + 1);
         }
         
@@ -74,7 +75,10 @@ public class Committee implements Serializable {
     	currentSession = new Session(currentSession.getSessionNumber() + 1);
     	sessions.add(currentSession);
     }
-    
+
+    /**
+     * Performs a roll call for each Delegate, with a GUI popup asking which user the roll call request is for
+     */
     public void rollCall() {
       for (Delegate delegate : delegates.values()) {
           String state = MainWindow.requestSimpleInfoPopup("Roll Call!", "Roll call info for: " + delegate.getShortRole());
@@ -127,13 +131,13 @@ public class Committee implements Serializable {
     	}
     }
 
-	public String getCommitteeName() {
-		return committeeName;
-	}
+    public String getCommitteeName() {
+	return committeeName;
+    }
 
-	public void setCommitteeName(String committeeName) {
-		this.committeeName = committeeName;
-	}
+    public void setCommitteeName(String committeeName) {
+	this.committeeName = committeeName;
+    }
     
     
 }
